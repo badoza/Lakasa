@@ -3,216 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaCasa Cafe | Belagavi</title>
-    <!-- Tailwind CSS for minimalist, mobile-first styling -->
+    <title>LaCasa | Premium Cafe & Experiences in Belagavi</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Playfair Display for premium headings, Inter for clean body text -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cafe: {
-                            red: '#B91C1C', // Deep premium red
-                            dark: '#7F1D1D',
-                            light: '#FEF2F2',
+                        lacasa: {
+                            red: '#D90429', // Vibrant premium red
+                            dark: '#8D0801', // Deep crimson
+                            light: '#FFF5F5', // Soft red-tinted white
+                            gray: '#1E1E24'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
                     }
                 }
             }
         }
     </script>
+    
     <style>
-        /* Smooth scrolling for navigation links */
         html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #D90429; border-radius: 10px; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
     </style>
 </head>
-<body class="bg-white text-gray-800 font-sans antialiased">
+<body class="bg-white text-gray-800 font-sans antialiased selection:bg-lacasa-red selection:text-white">
+
+    <!-- Preloader / Initial entry animation -->
+    <div id="loader" class="fixed inset-0 bg-white z-[9999] flex items-center justify-center transition-opacity duration-1000">
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-lacasa-red tracking-widest animate-pulse">LaCasa.</h1>
+    </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-3xl font-serif font-bold text-cafe-red tracking-tight">LaCasa.</a>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#menu" class="text-gray-600 hover:text-cafe-red transition-colors">Menu</a>
-                    <a href="#experiences" class="text-gray-600 hover:text-cafe-red transition-colors">Experiences</a>
-                    <a href="#services" class="text-gray-600 hover:text-cafe-red transition-colors">Services</a>
-                    <a href="#contact" class="text-gray-600 hover:text-cafe-red transition-colors">Contact</a>
-                </div>
-                <div class="hidden md:flex">
-                    <a href="https://wa.me/918147226631" target="_blank" class="bg-cafe-red text-white px-6 py-2 rounded-full hover:bg-cafe-dark transition-colors shadow-md">
-                        Order Now
-                    </a>
-                </div>
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#" class="text-3xl font-serif font-bold text-lacasa-red tracking-tight relative z-10 hover:scale-105 transition-transform duration-300">
+                LaCasa.
+            </a>
+            <div class="hidden md:flex space-x-10 items-center">
+                <a href="#menu" class="text-sm font-semibold tracking-widest uppercase hover:text-lacasa-red transition-colors relative group">
+                    Menu
+                    <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-lacasa-red transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#experiences" class="text-sm font-semibold tracking-widest uppercase hover:text-lacasa-red transition-colors relative group">
+                    Experiences
+                    <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-lacasa-red transition-all group-hover:w-full"></span>
+                </a>
+                <a href="https://wa.me/918147226631" target="_blank" class="relative inline-flex group">
+                    <div class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-lacasa-red to-lacasa-dark rounded-full blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-pulse"></div>
+                    <button class="relative inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white transition-all duration-200 bg-lacasa-red font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lacasa-red hover:bg-lacasa-dark">
+                        Order on WhatsApp
+                    </button>
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-cafe-light">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <span class="text-cafe-red font-semibold tracking-wider uppercase text-sm mb-4 block">Welcome to Belagavi's Finest</span>
-            <h1 class="text-5xl md:text-7xl font-serif font-bold text-gray-900 mb-6 leading-tight">
-                Taste the Tradition.<br> <span class="text-cafe-red">Feel at Home.</span>
-            </h1>
-            <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-                From authentic Goan Poee and Ross Omelet to fresh bakery delights and artisanal coffee. Gather, play, and create at LaCasa.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#menu" class="bg-cafe-red text-white px-8 py-3 rounded-full hover:bg-cafe-dark transition-colors shadow-lg font-medium">
-                    Explore Menu
-                </a>
-                <a href="#experiences" class="bg-white text-cafe-red border border-cafe-red px-8 py-3 rounded-full hover:bg-cafe-light transition-colors font-medium">
-                    Discover Workshops
-                </a>
-            </div>
-        </div>
-    </section>
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-lacasa-light">
+        <!-- Abstract decorative shapes -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-lacasa-red rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float"></div>
+        <div class="absolute bottom-20 left-10 w-72 h-72 bg-lacasa-dark rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" style="animation-delay: 2s;"></div>
 
-    <!-- Menu Highlights Section -->
-    <section id="menu" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">Our Signatures</h2>
-                <div class="w-24 h-1 bg-cafe-red mx-auto"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full text-center">
+            <div data-aos="fade-down" data-aos-duration="1000" class="inline-block mb-6 px-6 py-2 border border-lacasa-red rounded-full text-lacasa-red font-medium tracking-wide text-sm bg-white/50 backdrop-blur-sm">
+                Belagavi's Premium Cafe & Workspace
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Item 1 -->
-                <div class="group border border-gray-100 p-8 rounded-2xl hover:shadow-xl transition-shadow bg-white text-center">
-                    <div class="w-16 h-16 bg-cafe-light rounded-full flex items-center justify-center mx-auto mb-6 text-cafe-red text-2xl group-hover:scale-110 transition-transform">🍳</div>
-                    <h3 class="text-xl font-bold mb-2">Ross Omelet</h3>
-                    <p class="text-gray-500 text-sm">Our major highlight. Authentic, spicy Goan curry poured over a fluffy omelet.</p>
-                </div>
-                <!-- Item 2 -->
-                <div class="group border border-gray-100 p-8 rounded-2xl hover:shadow-xl transition-shadow bg-white text-center">
-                    <div class="w-16 h-16 bg-cafe-light rounded-full flex items-center justify-center mx-auto mb-6 text-cafe-red text-2xl group-hover:scale-110 transition-transform">🍞</div>
-                    <h3 class="text-xl font-bold mb-2">Goan Poee</h3>
-                    <p class="text-gray-500 text-sm">Traditional, wood-fired Goan bread. Perfect for dipping and savoring.</p>
-                </div>
-                <!-- Item 3 -->
-                <div class="group border border-gray-100 p-8 rounded-2xl hover:shadow-xl transition-shadow bg-white text-center">
-                    <div class="w-16 h-16 bg-cafe-light rounded-full flex items-center justify-center mx-auto mb-6 text-cafe-red text-2xl group-hover:scale-110 transition-transform">☕</div>
-                    <h3 class="text-xl font-bold mb-2">Artisanal Coffee</h3>
-                    <p class="text-gray-500 text-sm">Freshly brewed perfection to start your morning or fuel your evening chats.</p>
-                </div>
-                <!-- Item 4 -->
-                <div class="group border border-gray-100 p-8 rounded-2xl hover:shadow-xl transition-shadow bg-white text-center">
-                    <div class="w-16 h-16 bg-cafe-light rounded-full flex items-center justify-center mx-auto mb-6 text-cafe-red text-2xl group-hover:scale-110 transition-transform">🥐</div>
-                    <h3 class="text-xl font-bold mb-2">Fresh Bakery</h3>
-                    <p class="text-gray-500 text-sm">Sweet and savory baked goods made fresh in-house every single day.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experiences Section (Games & Workshops) -->
-    <section id="experiences" class="py-20 bg-gray-50 border-y border-gray-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2">
-                    <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6">More Than Just a Cafe</h2>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        At LaCasa, we believe in creating memories. Whether you're challenging friends to a board game while enjoying your food, or getting your hands messy in our creative workshops, there's always something happening here.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-cafe-red mr-3">✔</span> <strong>Indoor Games:</strong> Unwind and have fun with friends.
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-cafe-red mr-3">✔</span> <strong>Pottery Workshops:</strong> Mold, shape, and create your own ceramics.
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <span class="text-cafe-red mr-3">✔</span> <strong>Art Workshops:</strong> Express yourself in our guided painting sessions.
-                        </li>
-                    </ul>
-                </div>
-                <div class="lg:w-1/2 grid grid-cols-2 gap-4">
-                    <div class="bg-cafe-red rounded-2xl h-48 lg:h-64 shadow-lg transform translate-y-8 flex items-center justify-center text-white text-4xl p-6 text-center font-serif">
-                        Create
-                    </div>
-                    <div class="bg-gray-200 rounded-2xl h-48 lg:h-64 shadow-inner flex items-center justify-center text-gray-500 text-4xl p-6 text-center font-serif">
-                        Play
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services (Party & Catering) -->
-    <section id="services" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6">Party & Catering Orders</h2>
-            <p class="text-gray-600 mb-10 max-w-2xl mx-auto">
-                Planning an event? Let us bring the flavors of LaCasa to your special occasions. We handle party orders and outdoor catering with customized menus tailored to your guests.
+            <h1 data-aos="zoom-out-up" data-aos-duration="1200" class="text-6xl md:text-8xl lg:text-9xl font-serif font-bold text-gray-900 mb-8 leading-[1.1] tracking-tighter">
+                Taste the <span class="text-transparent bg-clip-text bg-gradient-to-r from-lacasa-red to-lacasa-dark italic">Culture.</span>
+            </h1>
+            
+            <p data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" class="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                Elevating traditional flavors. Famous for our authentic Goan Poyee & Ross Omelet, perfectly paired with artisanal coffee and fresh bakery delights.
             </p>
-            <a href="https://wa.me/918147226631" target="_blank" class="inline-block bg-white text-cafe-red border-2 border-cafe-red px-10 py-4 rounded-full hover:bg-cafe-red hover:text-white transition-all shadow-md font-bold text-lg">
-                Book Catering via WhatsApp
-            </a>
+            
+            <div data-aos="fade-up" data-aos-delay="500" class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#menu" class="group relative px-8 py-4 bg-gray-900 text-white overflow-hidden rounded-full font-semibold">
+                    <div class="absolute inset-0 w-0 bg-lacasa-red transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                    <span class="relative">Explore the Menu</span>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer / Contact -->
-    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-cafe-red">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <!-- Bento Grid Menu Section -->
+    <section id="menu" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-right">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-serif font-bold text-gray-900 leading-tight">
+                        Our Culinary <br><span class="text-lacasa-red">Signatures</span>
+                    </h2>
+                </div>
+                <div class="mt-6 md:mt-0 max-w-sm">
+                    <p class="text-gray-500 font-light">Carefully crafted dishes that bring the authentic taste of the coast straight to your table in Belagavi.</p>
+                </div>
+            </div>
+
+            <!-- Bento Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+                
+                <!-- Ross Omelet (Large Span) -->
+                <div data-aos="fade-up" data-aos-delay="100" class="md:col-span-2 md:row-span-2 rounded-3xl bg-lacasa-light border border-red-100 p-10 flex flex-col justify-end relative overflow-hidden group hover:shadow-2xl transition-all duration-500 cursor-pointer">
+                    <div class="absolute top-0 right-0 p-8 opacity-20 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-700">
+                        <svg class="w-48 h-48 text-lacasa-red" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c1.1 0 2-.9 2-2V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="px-4 py-1 bg-white text-lacasa-red text-xs font-bold uppercase tracking-wider rounded-full mb-4 inline-block shadow-sm">House Special</span>
+                        <h3 class="text-4xl font-serif font-bold text-gray-900 mb-3 group-hover:-translate-y-2 transition-transform duration-300">Ross Omelet</h3>
+                        <p class="text-gray-600 max-w-md group-hover:-translate-y-2 transition-transform duration-300 delay-75">Our crown jewel. A fluffy omelet drowned in rich, spicy, and authentic Goan xacuti-style gravy. An explosion of flavors.</p>
+                    </div>
+                </div>
+
+                <!-- Goan Poee -->
+                <div data-aos="fade-up" data-aos-delay="200" class="rounded-3xl bg-white border border-gray-100 p-8 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div class="text-lacasa-red text-4xl mb-4 group-hover:scale-110 transition-transform origin-left">🥖</div>
+                    <div>
+                        <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2">Goan Poyee</h3>
+                        <p class="text-gray-500 text-sm">Traditional toddy-fermented wood-fired bread. The perfect companion for our curries.</p>
+                    </div>
+                </div>
+
+                <!-- Bakery -->
+                <div data-aos="fade-up" data-aos-delay="300" class="rounded-3xl bg-gray-900 text-white p-8 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div class="text-lacasa-light text-4xl mb-4 group-hover:scale-110 transition-transform origin-left">🥐</div>
+                    <div>
+                        <h3 class="text-2xl font-serif font-bold mb-2">Fresh Bakery</h3>
+                        <p class="text-gray-400 text-sm">Baked fresh daily. From sweet pastries to savory bites, perfect for your cravings.</p>
+                    </div>
+                </div>
+
+                <!-- Coffee -->
+                <div data-aos="fade-up" data-aos-delay="400" class="md:col-span-3 rounded-3xl bg-gradient-to-r from-lacasa-red to-lacasa-dark text-white p-10 flex flex-col md:flex-row items-center justify-between group overflow-hidden relative">
+                    <div class="relative z-10 md:w-1/2 mb-6 md:mb-0">
+                        <h3 class="text-3xl font-serif font-bold mb-3">Artisanal Coffee Bar</h3>
+                        <p class="text-white/80">Premium beans, expertly roasted and brewed to perfection. The ultimate fuel for your conversations and creativity.</p>
+                    </div>
+                    <div class="relative z-10">
+                        <a href="#contact" class="px-8 py-3 bg-white text-lacasa-red rounded-full font-bold hover:bg-lacasa-light transition-colors inline-block hover:scale-105 duration-300">
+                            View Full Menu
+                        </a>
+                    </div>
+                    <!-- Decorative Background element -->
+                    <div class="absolute -right-20 -bottom-20 opacity-20 transform group-hover:scale-110 transition-transform duration-700">
+                        <svg width="300" height="300" viewBox="0 0 24 24" fill="currentColor"><path d="M4 19h16v2H4v-2zm16-6c0 2.21-1.79 4-4 4H8c-2.21 0-4-1.79-4-4V5h16v8zm-2-6H6v6c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7zm2-4H4v2h16V3z"/></svg>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences (Workshops & Games) - Magazine Layout -->
+    <section id="experiences" class="py-24 bg-gray-50 border-t border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span class="text-lacasa-red uppercase tracking-widest text-sm font-bold">Community & Culture</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mt-4 mb-6">More Than Just a Cafe</h2>
+                <p class="text-gray-600 text-lg">LaCasa is a space to create, play, and connect. Step away from the screens and immerse yourself in hands-on fun.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left side text content -->
+                <div class="order-2 lg:order-1 space-y-12">
+                    <!-- Feature 1 -->
+                    <div class="flex gap-6 group" data-aos="fade-right" data-aos-delay="100">
+                        <div class="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center flex-shrink-0 border border-gray-50 group-hover:-translate-y-2 transition-transform duration-300">
+                            <span class="text-2xl text-lacasa-red">🏺</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2">Pottery Workshops</h3>
+                            <p class="text-gray-600 leading-relaxed">Get your hands muddy and mold your imagination. Guided pottery sessions designed for beginners and enthusiasts alike.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="flex gap-6 group" data-aos="fade-right" data-aos-delay="200">
+                        <div class="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center flex-shrink-0 border border-gray-50 group-hover:-translate-y-2 transition-transform duration-300">
+                            <span class="text-2xl text-lacasa-red">🎨</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2">Art Workshops</h3>
+                            <p class="text-gray-600 leading-relaxed">Sip coffee and paint your masterpiece. We host regular canvas painting, sketching, and craft workshops.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="flex gap-6 group" data-aos="fade-right" data-aos-delay="300">
+                        <div class="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center flex-shrink-0 border border-gray-50 group-hover:-translate-y-2 transition-transform duration-300">
+                            <span class="text-2xl text-lacasa-red">🎲</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2">Indoor Games</h3>
+                            <p class="text-gray-600 leading-relaxed">A curated collection of board games. Perfect for groups looking to challenge each other over a plate of Ross Omelet.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side Abstract Visual (Since no images provided, using CSS art/shapes) -->
+                <div class="order-1 lg:order-2 relative" data-aos="zoom-in">
+                    <div class="aspect-square rounded-[3rem] bg-lacasa-light border-2 border-white shadow-2xl relative overflow-hidden flex items-center justify-center group">
+                        <!-- Abstract composition representing art and play -->
+                        <div class="absolute w-40 h-40 bg-lacasa-red rounded-full mix-blend-multiply opacity-80 blur-xl top-10 left-10 group-hover:scale-150 transition-transform duration-700"></div>
+                        <div class="absolute w-40 h-40 bg-yellow-400 rounded-full mix-blend-multiply opacity-80 blur-xl bottom-10 right-10 group-hover:scale-150 transition-transform duration-700"></div>
+                        
+                        <div class="relative z-10 text-center p-8 bg-white/40 backdrop-blur-md border border-white/50 rounded-3xl shadow-xl">
+                            <h4 class="font-serif text-3xl font-bold text-gray-900 mb-2">Create & Play</h4>
+                            <p class="text-sm font-bold text-lacasa-red uppercase tracking-wider">Join our next event</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Call to Action -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="bg-gray-900 rounded-[2.5rem] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl" data-aos="fade-up">
+                
+                <!-- Background decoration -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-lacasa-red rounded-full opacity-20 blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-lacasa-red rounded-full opacity-20 blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+
+                <div class="relative z-10">
+                    <span class="uppercase tracking-widest text-lacasa-red font-bold text-sm mb-4 block">Catering & Events</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">Host Your Party with LaCasa</h2>
+                    <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto font-light">
+                        From bulk party orders to comprehensive outdoor catering, let us bring the unique flavors and premium service of LaCasa directly to your guests.
+                    </p>
+                    
+                    <a href="https://wa.me/918147226631" target="_blank" class="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-gray-900 transition-all duration-300 bg-white rounded-full hover:bg-lacasa-light hover:scale-105 hover:shadow-[0_0_20px_rgba(217,4,41,0.4)]">
+                        <svg class="w-6 h-6 mr-3 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Message on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-50 border-t border-gray-200 pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 
                 <!-- Brand -->
-                <div>
-                    <h2 class="text-3xl font-serif font-bold text-white mb-4">LaCasa.</h2>
-                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">
-                        Belagavi's premium destination for Goan delicacies, great coffee, and creative workshops.
+                <div class="md:col-span-2">
+                    <h2 class="text-4xl font-serif font-bold text-lacasa-red mb-6">LaCasa.</h2>
+                    <p class="text-gray-600 max-w-sm font-light leading-relaxed mb-6">
+                        Belagavi's premium destination for authentic Goan cuisine, artisanal coffee, and vibrant community workshops.
                     </p>
                 </div>
 
-                <!-- Contact Info -->
+                <!-- Contact -->
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-cafe-red">Contact Us</h3>
-                    <ul class="space-y-3 text-gray-400 text-sm">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-gray-900 mb-6">Visit Us</h3>
+                    <ul class="space-y-4 text-gray-600 font-light">
                         <li class="flex items-start">
-                            <span class="mr-2">📍</span> 
-                            <!-- Replace href with actual Google Maps link when ready -->
-                            <a href="#" class="hover:text-white transition-colors">Belagavi, Karnataka</a>
+                            <span class="mr-3 text-lacasa-red">📍</span>
+                            <span>Belagavi, Karnataka<br>India</span>
                         </li>
                         <li class="flex items-center">
-                            <span class="mr-2">📞</span> 
-                            <a href="https://wa.me/918147226631" class="hover:text-white transition-colors">+91 8147226631</a>
+                            <span class="mr-3 text-lacasa-red">📞</span>
+                            <a href="https://wa.me/918147226631" class="hover:text-lacasa-red transition-colors">+91 8147226631</a>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Hours -->
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-cafe-red">Hours</h3>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li class="flex justify-between border-b border-gray-800 pb-2">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-gray-900 mb-6">Timings</h3>
+                    <ul class="space-y-3 text-gray-600 font-light text-sm">
+                        <li class="flex justify-between border-b border-gray-200 pb-2">
                             <span>Mon - Fri</span>
-                            <span>9:00 AM - 10:00 PM</span>
+                            <span class="font-medium text-gray-900">9:00 AM - 10:00 PM</span>
                         </li>
                         <li class="flex justify-between pt-2">
                             <span>Sat - Sun</span>
-                            <span>8:00 AM - 11:00 PM</span>
+                            <span class="font-medium text-gray-900">8:00 AM - 11:00 PM</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Developer Attribution -->
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-                <p>&copy; 2026 LaCasa Cafe Belagavi. All rights reserved.</p>
-                <p class="mt-4 md:mt-0">Developed by Kunal Dongare</p>
+            <!-- Developer Attribution & Copyright -->
+            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 font-light">
+                <p>&copy; 2026 LaCasa Cafe. All rights reserved.</p>
+                <p class="mt-4 md:mt-0 font-medium">Developed by Kunal Dongare</p>
             </div>
         </div>
     </footer>
 
+    <!-- AOS Animation Script & Navbar Logic -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 1000);
+            }, 500); // Short delay to ensure logo is seen
+        });
+
+        // Navbar Glassmorphism on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-nav', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('glass-nav', 'py-4');
+                navbar.classList.add('py-6');
+            }
+        });
+    </script>
 </body>
 </html>
