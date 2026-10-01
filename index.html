@@ -224,13 +224,28 @@
                     </div>
                 </div>
 
-                <!-- Provided User Image (Gallery) -->
-                <div class="md:col-span-6 group relative h-[400px] rounded-[2rem] overflow-hidden bg-white border border-gray-200" data-aos="fade-up" data-aos-delay="200">
-                    <!-- Google Maps User Photo -->
-                    <img src="https://lh3.googleusercontent.com/grass-cs/ACvplmNFWV178g8158tTjSSZfNkSZey36l8msUW9jXtZ6n--ccWw5PbptqFCgOdR-Ac-6-vD5J45cOWVNrrG_6kjlVJFyxa6ZrzyP0LVx-zCMBqVCWMe_fupwY_-FZf1FasOm9OUhrpVKbkcMxvr=w326-h312-n-k-no" alt="LaCasa Experience" class="img-zoom absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <a href="https://wa.me/918147226631" class="px-8 py-3 bg-white text-lacasa-dark rounded-full font-semibold hover:bg-lacasa-red hover:text-white transition-all duration-300 shadow-xl uppercase tracking-widest text-xs">View Full Menu</a>
+                <!-- NEW VIDEO CARD (Menu Teaser -> WhatsApp) -->
+                <div class="md:col-span-6 group relative h-[400px] rounded-[2rem] overflow-hidden bg-black" data-aos="fade-up" data-aos-delay="200">
+                    
+                    <!-- Background Video (YouTube) -->
+                    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+                        <!-- Sized to cover the div perfectly without showing borders -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/RyRRnjAm1x4?autoplay=1&mute=1&controls=0&loop=1&playlist=RyRRnjAm1x4&playsinline=1&modestbranding=1" 
+                            class="absolute top-1/2 left-1/2 w-[300%] h-[300%] md:w-[150%] md:h-[150%] transform -translate-x-1/2 -translate-y-1/2"
+                            frameborder="0" 
+                            allow="autoplay; encrypted-media; fullscreen">
+                        </iframe>
+                    </div>
+
+                    <!-- Overlay to darken video and make button pop -->
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 z-10 pointer-events-none"></div>
+                    
+                    <!-- Interactive Button (Links to WhatsApp) -->
+                    <div class="absolute inset-0 flex items-center justify-center z-20">
+                        <a href="https://wa.me/918147226631" target="_blank" class="px-8 py-4 bg-white text-lacasa-dark rounded-full font-bold hover:bg-lacasa-red hover:text-white transition-all duration-300 shadow-xl uppercase tracking-[0.2em] text-xs">
+                            View Full Menu
+                        </a>
                     </div>
                 </div>
 
@@ -265,7 +280,7 @@
                     <p class="text-white/60 font-light leading-relaxed mb-10">
                         Get your hands messy and mold your imagination. Our guided pottery workshops are designed for everyone. Shape clay, sip coffee, and take your masterpiece home.
                     </p>
-                    <a href="https://wa.me/918147226631" class="text-xs font-bold text-white uppercase tracking-[0.2em] border-b border-lacasa-red pb-2 hover:text-lacasa-red transition-colors">Book a Wheel</a>
+                    <a href="https://wa.me/918147226631" target="_blank" class="text-xs font-bold text-white uppercase tracking-[0.2em] border-b border-lacasa-red pb-2 hover:text-lacasa-red transition-colors">Book a Wheel</a>
                 </div>
 
                 <!-- Painting & Games Card -->
@@ -275,7 +290,7 @@
                     <p class="text-white/60 font-light leading-relaxed mb-10">
                         Discover your inner artist in our canvas painting sessions, or gather friends for an intense board game night over plates of hot Ross Omelet.
                     </p>
-                    <a href="https://wa.me/918147226631" class="text-xs font-bold text-white uppercase tracking-[0.2em] border-b border-lacasa-red pb-2 hover:text-lacasa-red transition-colors">Reserve a Spot</a>
+                    <a href="https://wa.me/918147226631" target="_blank" class="text-xs font-bold text-white uppercase tracking-[0.2em] border-b border-lacasa-red pb-2 hover:text-lacasa-red transition-colors">Reserve a Spot</a>
                 </div>
             </div>
         </div>
@@ -290,7 +305,7 @@
             <p class="text-xl text-white/50 mb-12 font-light max-w-2xl mx-auto leading-relaxed">
                 Elevate your next event. We offer bespoke outdoor catering and handle bulk party orders, delivering the exceptional LaCasa experience directly to your guests.
             </p>
-            <a href="https://wa.me/918147226631" class="inline-flex items-center justify-center px-10 py-5 text-sm font-bold text-lacasa-dark bg-white rounded-full hover:bg-lacasa-red hover:text-white transition-all duration-500 uppercase tracking-[0.2em]">
+            <a href="https://wa.me/918147226631" target="_blank" class="inline-flex items-center justify-center px-10 py-5 text-sm font-bold text-lacasa-dark bg-white rounded-full hover:bg-lacasa-red hover:text-white transition-all duration-500 uppercase tracking-[0.2em]">
                 Discuss Your Event
             </a>
         </div>
